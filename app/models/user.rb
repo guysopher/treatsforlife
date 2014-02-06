@@ -13,6 +13,9 @@ class User
   field :token, type: String
   field :secret, type: String
 
+  field :pets_history, type: Array
+  field :current_pet, type: String
+
   #-------------#
   # auth_update #
   #-------------#

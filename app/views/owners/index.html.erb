@@ -3,7 +3,9 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Pets</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Location</th>
     <th>Adopted pets</th>
     <th>Current pet</th>
     <th></th>
@@ -14,12 +16,14 @@
 <% @owners.each do |owner| %>
   <tr>
     <td><%= owner.name %></td>
-    <td><%= owner.pets %></td>
-    <td><%= owner.adopted_pets %></td>
+    <td><%= owner.nickname %></td>
+    <td><%= owner.email %></td>
+    <td><%= owner.location %></td>
+    <td><%= owner.pets_history %></td>
     <td><%= owner.current_pet %></td>
-    <td><%= link_to 'Show', owner %></td>
+    <td><%# link_to 'Show', owner %></td>
     <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
-    <td><%= link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%# link_to 'Destroy', owner, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

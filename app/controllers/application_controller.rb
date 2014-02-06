@@ -2,10 +2,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  # ログイン認証
   before_filter :authorize
-
-  # セッション有効期限延長
   before_filter :reset_session_expires
 
   private
@@ -13,7 +10,6 @@ class ApplicationController < ActionController::Base
   #-----------#
   # authorize #
   #-----------#
-  # ログイン認証
   def authorize
     # セッション／トップコントローラ以外で
     if params[:controller] != "sessions" and params[:controller] != "top"
@@ -30,7 +26,6 @@ class ApplicationController < ActionController::Base
   #-----------------------#
   # reset_session_expires #
   #-----------------------#
-  # セッション期限延長
   def reset_session_expires
     request.session_options[:expire_after] = 2.weeks
   end
