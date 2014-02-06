@@ -1,5 +1,3 @@
-ActiveSupport.on_load :before_configuration, :yield => true do
-  RailsConfig.setup do |config|
-    config.const_name = "Settings"
-  end
+RailsConfig.setup do |config|
+  config.const_name = "Settings"
 end
