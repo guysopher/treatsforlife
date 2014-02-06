@@ -61,7 +61,7 @@ class ApplicationController < ActionController::Base
 
       require 'twilio-ruby'
 
-      text = "Please feed #{pet_name} with a #{treat_name}, take an Instagram video and tag it with #TreetsForTheLifeOf#{pet_name.capitalize.gsub(' ','')}"
+      text = "Please feed #{pet_name} with a #{treat_name}, take an Instagram video and tag it with #TreatsForTheLifeOf#{pet_name.capitalize.gsub(' ','')}"
 
       @account_sid = 'AC30eea0dc1226e638714ca5228304993a'
       @auth_token = "011359ca5fb5532fb3ee9ea189cfd895"

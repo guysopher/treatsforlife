@@ -43,10 +43,20 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @pet }
-    end
+    open("https://api.instagram.com/v1/tags/TreatsForTheLifeOf#{@pet.name.capitalize.gsub(' ','')}/media/recent?client_id=d9c1142d0ac14d1ea5a45bc8478006a4", 'r') {|f|
+      data = JSON.parse f.read
+      data['data'].each do |d|
+        next unless d['videos']
+        @pet.videos ||= []
+        @pet.videos << d['videos']['standard_resolution']['url']
+      end
+
+      respond_to do |format|
+        format.html # show.html.erb
+        format.json { render json: data }
+      end
+    }
+
   end
 
   # GET /pets/new
