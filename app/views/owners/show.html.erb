@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @owner.name %>
+</p>
+
+<p>
+  <b>Pets:</b>
+  <%= @owner.pets %>
+</p>
+
+<p>
+  <b>Adopted pets:</b>
+  <%= @owner.adopted_pets %>
+</p>
+
+<p>
+  <b>Current pet:</b>
+  <%= @owner.current_pet %>
+</p>
+
+
+<%= link_to 'Edit', edit_owner_path(@owner) %> |
+<%= link_to 'Back', owners_path %>
