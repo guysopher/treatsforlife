@@ -1,3 +1,4 @@
 <% if user.present? %>
-    <%= link_to_unless(user.nickname.blank?, image_tag(user.image), "#{Settings[user.provider + '_page']}#{user.nickname}", target: "_blank", rel: "tooltip", "data-original-title" => user.nickname) %>
+    <!--<%= link_to_unless(user.nickname.blank?, image_tag(user.image), "#{Settings[user.provider + '_page']}#{user.nickname}", target: "_blank", rel: "tooltip", "data-original-title" => user.nickname) %>-->
+    <%= link_to_unless(user.nickname.blank?, image_tag(user.image), "/owners/#{user.id}", target: "_blank", rel: "tooltip") %>
 <% end %>

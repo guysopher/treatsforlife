@@ -13,6 +13,20 @@ class PetsController < ApplicationController
     end
   end
 
+  def adopt
+    @pet = Pet.find(params[:id])
+    puts current_user
+    current_user.current_pet = params[:id]
+    current_user.save!
+
+    @pet.owner_id = current_user.id.to_s
+
+    respond_to do |format|
+      format.html {render 'show.html.erb'}
+      format.json { render json: @pet }
+    end
+
+  end
   # GET /pets/1
   # GET /pets/1.json
   def show
