@@ -14,15 +14,22 @@ class PetsController < ApplicationController
   end
 
   def do
+
     @pet = Pet.find(params[:id])
-    #puts current_user
-    current_user.current_pet = params[:id]
-    current_user.save!
 
-    @pet.owner_id = current_user.id.to_s
-    @pet.save!
+    if (params[:adopt])
+      current_user.current_pet = params[:id]
+      current_user.save!
+      @pet.owner_id = current_user.id.to_s
+      @pet.save!
+      save_action(@pet.owner_id, current_user.name.to_s, 'a', 'adopted', @pet.id.to_s, @pet.name.to_s)
+    end
 
-    save_action(@pet.owner_id, current_user.name.to_s, 'a', 'adopted', @pet.id.to_s, @pet.name.to_s)
+    if (params[:treat])
+      save_action(current_user.id, current_user.name.to_s, 'g', 'gave', @pet.id.to_s, @pet.name.to_s, params[:fid], params[:fname])
+    end
+
+
 
     respond_to do |format|
       format.html {render 'show.html.erb'}

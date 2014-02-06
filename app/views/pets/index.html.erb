@@ -36,7 +36,21 @@
     <!--<td><%= link_to 'Show', pet %></td>
     <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
     <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-    <td><%= link_to 'Adopt', pet, method: :post, data: { adopt:true, confirm: 'Are you sure?' } %></td>
+    <!--<td><%# link_to 'Adopt', pet, method: :post, data: { adopt:'true', confirm: 'Are you sure?' } %></td>-->
+    <td>
+      <%= form_tag  'pets/'+pet.id, :method => 'post' do %>
+          <%= hidden_field :adopt, :value =>true %>
+          <%= submit_tag "Adopt"%>
+      <% end %>
+    </td>
+    <td>
+      <%= form_tag  'pets/'+pet.id, :method => 'post' do %>
+          <%= hidden_field_tag :treat, true %>
+          <%= hidden_field_tag :fid, 1 %>
+          <%= hidden_field_tag :fname, 'treat' %>
+          <%= submit_tag "treat"%>
+      <% end %>
+    </td>
   </tr>
 <% end %>
 </table>
