@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  def landing
+  def welcome
 
   end
 end

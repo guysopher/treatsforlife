@@ -9,7 +9,7 @@ gem 'mongoid', '~> 3.0.0'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-
+gem 'twilio-ruby' #send SMSs
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -44,3 +44,4 @@ gem 'jquery-rails'
 gem 'omniauth-scaffold', :group => :development
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
+gem 'omniauth-github'

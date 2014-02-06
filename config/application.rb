@@ -1,7 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
 # Pick the frameworks you want:
-# require "active_record/railtie"
+require "active_support/railtie"
 require "action_controller/railtie"
 require "action_mailer/railtie"
 require "active_resource/railtie"
@@ -71,6 +71,6 @@ module Treatsforlife
     config.assets.initialize_on_precompile = false
 
     # For Tapp
-    #Tapp.config.default_printer = :awesome_print
+    Tapp.config.default_printer = :awesome_print
   end
 end

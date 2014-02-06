@@ -57,4 +57,33 @@ class ApplicationController < ActionController::Base
   end
   helper_method :save_action
 
+  def send_sms
+
+    unless (params['to'].nil?)
+      require 'twilio-ruby'
+
+      text = params['text'] || "Join the fun on Moment.me"
+
+      @account_sid = 'AC30eea0dc1226e638714ca5228304993a'
+      @auth_token = "011359ca5fb5532fb3ee9ea189cfd895"
+
+      # set up a client to talk to the Twilio REST API
+      @client = Twilio::REST::Client.new(@account_sid, @auth_token)
+
+      @account = @client.account
+      begin
+        @message = @account.sms.messages.create({:from => '+12508003690', :to => '+' + params['to'], :body => text})
+
+        #message was successful - record to analytics
+        text.scan(/\w+/).each do |ref|
+        end
+      rescue Exception => e
+        @message = ''
+      end
+      render :text => @message
+    end
+  end
+  helper_method :send_sms
+
+
 end

@@ -1,5 +1,5 @@
 $(function(){
-$('.add_owner').click(function(){
+    $('.add_owner').click(function(){
 var pet_id = $(this).attr('pet_id');
     $.post(
         "services/adopt",
