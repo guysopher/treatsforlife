@@ -27,5 +27,9 @@ Treatsforlife::Application.configure do
   config.assets.compress = false
 
   # Expands the lines which load the assets
-  config.assets.debug = true
+  # config.assets.debug = true
+  config.assets.debug = false
+
+  # For LogRotate
+  config.logger = Logger.new( 'log/development.log', 5, 1*1024*1024 )  # 1MB * 5
 end

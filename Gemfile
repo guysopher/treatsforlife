@@ -38,3 +38,8 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
+
+gem 'omniauth-scaffold', :group => :development
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'

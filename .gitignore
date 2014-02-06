@@ -27,3 +27,12 @@ config/secrets.yml
 
 # RubyMine
 .idea/*
+# Add
+.DS_Store
+vendor/bundle
+/log/*.log.*
+
+# rails_config
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml
