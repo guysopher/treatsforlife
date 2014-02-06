@@ -162,6 +162,7 @@ DEPENDENCIES
   mongo
   mongoid (~> 3.0.0)
   omniauth-facebook
+  omniauth-github
   omniauth-scaffold
   omniauth-twitter
   rails (= 3.2.16)
