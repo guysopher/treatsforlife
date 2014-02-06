@@ -14,6 +14,8 @@ Treatsforlife::Application.routes.draw do
   match "/auth/failure" => "sessions#failure"
   match "/logout" => "sessions#destroy", :as => :logout
 
+  match '/services/:name' => 'services#goto'
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

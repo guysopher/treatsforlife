@@ -3,6 +3,9 @@ class PetsController < ApplicationController
   # GET /pets.json
   def index
     @pets = Pet.all
+    @pets.each do |pet|
+      @user = pet.owner_id
+    end
 
     respond_to do |format|
       format.html # index.html.erb

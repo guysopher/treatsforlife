@@ -7,9 +7,11 @@
     <th>Age</th>
     <th>Size</th>
     <th>Gender</th>
+    <th>Info</th>
+    <th>Story</th>
     <th>Owner</th>
+    <th>Images</th>
     <th>Videos</th>
-    <th>Photos</th>
     <th></th>
     <th></th>
     <th></th>
@@ -22,12 +24,21 @@
     <td><%= pet.age %></td>
     <td><%= pet.size %></td>
     <td><%= pet.gender %></td>
+    <td><%= pet.info %></td>
+    <td><%= pet.story %></td>
     <td><%= pet.owner_id %></td>
+    <td>
+      <% pet.images.map do |img| %>
+      <%= image_tag(img) %>
+      <% end %>
+    </td>
     <td><%= pet.videos %></td>
-    <td><%= pet.photos %></td>
     <td><%= link_to 'Show', pet %></td>
     <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
     <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <button class="add_owner" pet_id="<%=pet.id%>">ADD OWNER</button>
+    </td>
   </tr>
 <% end %>
 </table>
