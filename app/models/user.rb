@@ -32,6 +32,18 @@ class User
     end
   end
 
+  def auth_update_sso(user)
+    image_path = "https://graph.facebook.com/#{user['username'].presence || user['uid']}/picture?width=200&height=200"
+    if self.name != user['name'] or self.nickname != user['nickname'] or self.image != image_path or self.email != user['email'] or self.location != user['location']
+      self.name     = user['name']
+      self.nickname = user['nickname']
+      self.image    = image_path
+      self.email    = user['email']
+      self.location = user['location']
+      self.save!
+    end
+  end
+
   private
 
   #---------------------------#
@@ -58,5 +70,27 @@ class User
 
     return user
   end
+
+  def self.create_with_sso(uid, access_token)
+    user = User.new
+    user.provider = 'facebook'
+    user.uid      = uid
+    user.token  = access_token
+
+    graph = Koala::Facebook::API.new(access_token)
+    profile = graph.get_object('/me', :fields => 'name,location,email,username')
+    image_path = "https://graph.facebook.com/#{profile['username'].presence || uid}/picture?width=200&height=200"
+    user.name     = profile['name']
+    user.nickname = profile['username']
+    user.image    = "https://graph.facebook.com/#{profile['username'].presence || uid}/picture?width=200&height=200"
+    user.email    = profile['email']
+    user.location = profile['location']
+
+    user.save!
+
+    return user
+  end
+
+
 
 end

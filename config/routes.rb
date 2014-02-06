@@ -13,6 +13,7 @@ Treatsforlife::Application.routes.draw do
 
   # For OmniAuth
   match "/auth/:provider/callback" => "sessions#callback"
+  match "/auth/:provider/api" => "sessions#api_callback"
   match "/auth/failure" => "sessions#failure"
   match "/logout" => "sessions#destroy", :as => :logout
 

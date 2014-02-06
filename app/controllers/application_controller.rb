@@ -11,11 +11,8 @@ class ApplicationController < ActionController::Base
   # authorize #
   #-----------#
   def authorize
-    # セッション／トップコントローラ以外で
     if params[:controller] != "sessions" and params[:controller] != "top" and params[:controller] != 'pages'
-      # 未ログインであればルートヘリダイレクト
       if session[:user_id].blank?
-        # リクエストURL保管
         session[:request_url] = request.url
         redirect_to '/welcome' and return
       end

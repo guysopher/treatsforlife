@@ -5,7 +5,6 @@ class SessionsController < ApplicationController
   #----------#
   def callback
     auth = request.env["omniauth.auth"]
-
     user = User.where( provider: auth["provider"], uid: auth["uid"] ).first || User.create_with_omniauth( auth )
     user.auth_update( auth )
 
@@ -18,6 +17,13 @@ class SessionsController < ApplicationController
     end
 
     redirect_to :root
+  end
+
+  def api_callback
+    user = User.where( provider: 'facebook', uid: params[:uid]).first || User.create_with_sso(params[:uid], params[:access_token])
+    user.auth_update_sso(user)
+    session[:user_id] = user.id
+    render :json => user
   end
 
   #---------#
