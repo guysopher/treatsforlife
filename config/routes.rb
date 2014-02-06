@@ -1,4 +1,10 @@
 Treatsforlife::Application.routes.draw do
+  resources :owners
+
+
+  resources :pets
+
+
   root to: 'pages#landing'
   # The priority is based upon order of creation:
   # first created -> highest priority.
