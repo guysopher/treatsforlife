@@ -1,0 +1,17 @@
+# OmniAuth Provider
+#provider: "twitter"
+provider: "facebook"
+
+# Provider Page
+#twitter_page: "https://twitter.com/"
+facebook_page: "https://www.facebook.com/"
+
+# アプリケーション名
+app_name: "treatsforlife"
+
+## プログラマTwitterID
+#programmer_twitter_id: "PROGRAMMER_TWITTER_ID"
+#
+## デザイナーTwitterID
+#designer_twitter_id: "DESIGNER_TWITTER_ID"
+#
