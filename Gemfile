@@ -41,6 +41,6 @@ gem 'jquery-rails'
 # gem 'debugger'
 
 gem 'rails_config'
-gem 'omniauth-scaffold', :group => :developmen
+gem 'omniauth-scaffold', :group => :development
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
