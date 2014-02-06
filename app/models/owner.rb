@@ -4,4 +4,5 @@ class Owner
   field :pets, type: Array
   field :adopted_pets, type: Array
   field :current_pet, type: String
+
 end
