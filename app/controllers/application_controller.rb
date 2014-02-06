@@ -57,12 +57,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :save_action
 
-  def send_sms
+  def send_sms(pet_name, treat_name)
 
-    unless (params['to'].nil?)
       require 'twilio-ruby'
 
-      text = params['text'] || "Join the fun on Moment.me"
+      text = "Please feed #{pet_name} with a #{treat_name}, take an Instagram video and tag it with #TreetsForTheLifeOf#{pet_name.capitalize.gsub(' ','')}"
 
       @account_sid = 'AC30eea0dc1226e638714ca5228304993a'
       @auth_token = "011359ca5fb5532fb3ee9ea189cfd895"
@@ -71,17 +70,8 @@ class ApplicationController < ActionController::Base
       @client = Twilio::REST::Client.new(@account_sid, @auth_token)
 
       @account = @client.account
-      begin
-        @message = @account.sms.messages.create({:from => '+12508003690', :to => '+' + params['to'], :body => text})
+      @message = @account.sms.messages.create({:from => '+12508003690', :to => '+972547787444', :body => text})
 
-        #message was successful - record to analytics
-        text.scan(/\w+/).each do |ref|
-        end
-      rescue Exception => e
-        @message = ''
-      end
-      render :text => @message
-    end
   end
   helper_method :send_sms
 

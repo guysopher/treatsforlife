@@ -27,6 +27,7 @@ class PetsController < ApplicationController
 
     if (params[:treat])
       save_action(current_user.id, current_user.name.to_s, 'g', 'gave', @pet.id.to_s, @pet.name.to_s, params[:fid], params[:fname])
+      send_sms(@pet.name.to_s, params[:fname])
     end
 
 
