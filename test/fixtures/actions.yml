@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: MyString
+  user_name: MyString
+  action: MyString
+  pet_id: MyString
+  pet_name: MyString
+  object_id: MyString
+  object_name: MyString
+  t: 2014-02-06 18:49:28
+
+two:
+  user_id: MyString
+  user_name: MyString
+  action: MyString
+  pet_id: MyString
+  pet_name: MyString
+  object_id: MyString
+  object_name: MyString
+  t: 2014-02-06 18:49:28

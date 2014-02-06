@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @action.user_id %>
+</p>
+
+<p>
+  <b>User name:</b>
+  <%= @action.user_name %>
+</p>
+
+<p>
+  <b>Action:</b>
+  <%= @action.action %>
+</p>
+
+<p>
+  <b>Pet:</b>
+  <%= @action.pet_id %>
+</p>
+
+<p>
+  <b>Pet name:</b>
+  <%= @action.pet_name %>
+</p>
+
+<p>
+  <b>Object:</b>
+  <%= @action.object_id %>
+</p>
+
+<p>
+  <b>Object name:</b>
+  <%= @action.object_name %>
+</p>
+
+<p>
+  <b>T:</b>
+  <%= @action.t %>
+</p>
+
+
+<%= link_to 'Edit', edit_action_path(@action) %> |
+<%= link_to 'Back', actions_path %>
