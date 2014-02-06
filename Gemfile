@@ -40,7 +40,7 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
-
+gem 'rails_config'
 gem 'omniauth-scaffold', :group => :development
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
