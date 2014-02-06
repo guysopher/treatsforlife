@@ -1,12 +1,12 @@
 Treatsforlife::Application.routes.draw do
 
-  resources :actions
-
   root to: 'actions#index'
 
+  resources :actions
   resources :owners
   resources :pets
 
+  match 'welcome' => 'pages#landing'
   #root to: 'pages#landing'
   # The priority is based upon order of creation:
   # first created -> highest priority.
