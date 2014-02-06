@@ -45,3 +45,4 @@ gem 'omniauth-scaffold', :group => :development
 gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-github'
+gem 'koala'
