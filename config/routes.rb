@@ -1,6 +1,8 @@
 Treatsforlife::Application.routes.draw do
 
-  root to: 'owners#index'
+  resources :actions
+
+  root to: 'actions#index'
 
   resources :owners
   resources :pets
@@ -14,8 +16,7 @@ Treatsforlife::Application.routes.draw do
   match "/auth/failure" => "sessions#failure"
   match "/logout" => "sessions#destroy", :as => :logout
 
-  post 'pets/:id' => 'pets#adopt'
-
+  post 'pets/:id' => 'pets#do'
 
   match '/services/:name' => 'services#goto'
 

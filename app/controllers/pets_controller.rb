@@ -13,13 +13,16 @@ class PetsController < ApplicationController
     end
   end
 
-  def adopt
+  def do
     @pet = Pet.find(params[:id])
-    puts current_user
+    #puts current_user
     current_user.current_pet = params[:id]
     current_user.save!
 
     @pet.owner_id = current_user.id.to_s
+    @pet.save!
+
+    save_action(@pet.owner_id, current_user.name.to_s, 'a', 'adopted', @pet.id.to_s, @pet.name.to_s)
 
     respond_to do |format|
       format.html {render 'show.html.erb'}
