@@ -71,6 +71,6 @@ module Treatsforlife
     config.assets.initialize_on_precompile = false
 
     # For Tapp
-    Tapp.config.default_printer = :awesome_print
+    #Tapp.config.default_printer = :awesome_print
   end
 end
