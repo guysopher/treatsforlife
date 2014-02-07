@@ -27,13 +27,6 @@ class PetsController < ApplicationController
       save_action(@pet.owner_id, current_user.name.to_s, 'a', 'adopted', @pet.id.to_s, @pet.name.to_s)
     end
 
-    if (params[:treat])
-      save_action(current_user.id, current_user.name.to_s, 'g', 'gave', @pet.id.to_s, @pet.name.to_s, params[:fid], params[:fname])
-      send_sms(@pet.name.to_s, params[:fname])
-    end
-
-
-
     respond_to do |format|
       format.html {render 'show.html.erb'}
       format.json { render json: @pet }
@@ -44,6 +37,11 @@ class PetsController < ApplicationController
   # GET /pets/1.json
   def show
     @pet = Pet.find(params[:id])
+
+    if (params[:auth])
+      save_action(current_user.id, current_user.name.to_s, 'g', 'gave', @pet.id.to_s, @pet.name.to_s, params[:treat], params[:treat])
+      send_sms(@pet.name.to_s, params[:treat])
+    end
 
     open("https://api.instagram.com/v1/tags/TreatsForTheLifeOf#{@pet.name.capitalize.gsub(' ','')}/media/recent?client_id=d9c1142d0ac14d1ea5a45bc8478006a4", 'r') {|f|
       data = JSON.parse f.read

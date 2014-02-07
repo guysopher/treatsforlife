@@ -6,6 +6,7 @@ Treatsforlife::Application.routes.draw do
   resources :owners
 
   get 'pets/:id/shop' => 'pets#shop'
+  get 'pets/:id/:treat' => 'pets#show'
   resources :pets
   post 'pets/:id' => 'pets#do'
 
