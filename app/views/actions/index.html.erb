@@ -5,13 +5,15 @@
           <div class="box-head">
             <% if  action[:user] %>
                 <div class="prof">
-                  <a href="/owner/<%= action['uid'] %>">
+                  <a href="/owners/<%= action['uid'] %>">
                     <div class="profile_img" style="background-image: url('<%=action[:user]['image']%>');"></div>
                   </a>
                 </div>
             <% end %>
             <div class="status">
-              <h1><%= action['uname'].split(' ').first %> <%= action['aname'] %> <%= action['pname'] %> <%= ('a ' + action['oname'].capitalize) if action['oname']!='' %></h1>
+              <a href="/pets/<%= action['pid'] %>">
+                <h1><%= action['uname'].split(' ').first %> <%= action['aname'] %> <%= action['pname'] %> <%= ('a ' + action['oname'].capitalize) if action['oname']!='' %></h1>
+              </a>
             </div>
             <span class="icon" style="background-image: url('assets/icon1.svg')"></span>
           </div>
