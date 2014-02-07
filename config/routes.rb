@@ -9,8 +9,8 @@ Treatsforlife::Application.routes.draw do
 
   get 'pets/mine' => 'pets#my'
   get 'pets/:id/shop' => 'pets#shop'
-  get 'pets/:id/:treat' => 'pets#show'
   resources :pets
+  get 'pets/:id/:treat' => 'pets#show'
   post 'pets/:id' => 'pets#do'
 
   match 'welcome' => 'pages#landing'
