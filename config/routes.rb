@@ -4,7 +4,10 @@ Treatsforlife::Application.routes.draw do
 
   resources :actions
   resources :owners
+
+  get 'pets/:id/shop' => 'pets#shop'
   resources :pets
+  post 'pets/:id' => 'pets#do'
 
   match 'welcome' => 'pages#landing'
   #root to: 'pages#landing'
@@ -17,7 +20,6 @@ Treatsforlife::Application.routes.draw do
   match "/auth/failure" => "sessions#failure"
   match "/logout" => "sessions#destroy", :as => :logout
 
-  post 'pets/:id' => 'pets#do'
 
   match '/services/:name' => 'services#goto'
 

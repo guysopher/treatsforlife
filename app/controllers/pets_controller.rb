@@ -59,6 +59,10 @@ class PetsController < ApplicationController
 
   end
 
+  def shop
+
+  end
+
   # GET /pets/new
   # GET /pets/new.json
   def new
