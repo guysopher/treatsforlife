@@ -2,13 +2,13 @@ class ActionsController < ApplicationController
   # GET /actions
   # GET /actions.json
   def index
-    actions = Action.all.to_a
+    actions = Action.all
     users = {}
-    User.all.to_a.each do |u|
+    User.all.each do |u|
       users[u['_id'].to_s] = u
     end
     pets={}
-    Pet.all.to_a.each do |u|
+    Pet.all.each do |u|
       pets[u['_id'].to_s] = u
     end
 
