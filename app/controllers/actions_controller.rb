@@ -2,7 +2,23 @@ class ActionsController < ApplicationController
   # GET /actions
   # GET /actions.json
   def index
-    @actions = Action.all
+    actions = Action.all.to_a
+    users = {}
+    User.all.to_a.each do |u|
+      users[u['_id'].to_s] = u
+    end
+    pets={}
+    Pet.all.to_a.each do |u|
+      pets[u['_id'].to_s] = u
+    end
+
+    @actions = []
+    actions.each do |a|
+      action = Hash[a.attributes]
+      action[:user] = Hash[users[a['uid']].attributes]
+      action[:pet] = Hash[pets[a['pid']].attributes]
+      @actions << action
+    end
 
     respond_to do |format|
       format.html # index.html.erb

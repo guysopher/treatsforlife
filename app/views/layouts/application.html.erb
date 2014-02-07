@@ -1,21 +1,97 @@
 <!DOCTYPE html>
-<html>
+
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+
 <head>
-  <title><%= Settings.app_name %></title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Treats For Life</title>
+
   <%= stylesheet_link_tag "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+
+  <meta name="description" content="treats for life">
+  <meta name="application-name" content="treatsforlife">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <!-- facebook og meta-->
+
+  <meta property="og:title" content="treatsforlife">
+  <meta property="og:type" content="game">
+  <meta property="og:url" content="http://www.treatsforlife.org">
+  <meta property="og:image" content="http://www.treatsforlife.org/featured.jpg">
+  <meta property="og:site_name" content="treatsforlife">
+  <meta property="fb:admins" content="">
+  <meta property="fb:app_id" content="601219569953172">
+  <meta property="og:description" content="treatsforlife">
+
+  <!-- for Twitter   -->
+  <meta name="twitter:title" content="treatsforlife">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="http://treatsforlife.org/featured.png">
+
+  <link rel="shortcut icon" href="/favicon.ico?v=1">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+  <!-- load modernizr-->
+  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+  <script type="text/javascript" src="//use.typekit.net/udu6esd.js"></script>
+  <script type="text/javascript">try {
+      Typekit.load();
+  } catch (e) {
+  }</script>
 </head>
+
 <body>
 
-<ul class="nav nav-tabs navbar-fixed-top backcolor_white padding_top10">
-  <% unless session[:user_id].blank? %>
-      <li><%= render partial: '/layouts/user_icon', locals: {user: current_user} %></li>
-      <li><%= link_to("Logout", logout_path) %></li>
-  <% else %>
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
+    your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
+    improve your experience.</p>
+<![endif]-->
+<noscript>
+  <div class="no-js-warning">This site is better with JavaScript turned on!</div>
+</noscript>
+
+<header id="header" class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-sm-10 col-md-10">
+        <div class="logo">
+          <img src="assets/logo.svg">
+        </div>
+      </div>
+      <div class="col-xs-2 col-sm-2 col-md-2">
+        <a href="about.php" class="about loadPage">
+          <img src="assets/about.svg" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<% unless session[:user_id].blank? %>
+    <!--<ul class="nav nav-tabs navbar-fixed-top backcolor_white padding_top10">-->
+      <!--<li><%# render partial: '/layouts/user_icon', locals: {user: current_user} %></li>-->
+      <!--<li><%# link_to("Logout", logout_path) %></li>-->
+    <!--</ul>-->
+<% else %>
+    <ul class="nav nav-tabs navbar-fixed-top backcolor_white padding_top10">
       <li><%= link_to "Login", "/auth/#{Settings.provider}" %></li>
-  <% end %>
-</ul>
+    </ul>
+<% end %>
 
 <div class="container">
 
@@ -23,15 +99,35 @@
   <%= simple_format(flash[:alert], style: "color: red;") unless flash[:alert].blank? %>
 
   <% if current_user %>
-    <%= yield %>
+      <%= yield %>
   <% end %>
 
 </div>
 
 <footer>
-  <a href="/pets">save a life</a>
+  <a href="savelive.php" class="savelive loadPage">
+    <img src="assets/savealife.svg" alt="">
+  </a>
 </footer>
 
+<!-- for the jquery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+<script src="js/vendor/jquery.nicescroll.min.js"></script>
+<script src="js/vendor/jquery.isotope.min.js"></script>
+<script src="js/vendor/headroom.min.js"></script>
+<script src="js/vendor/jquery.headroom.min.js"></script>
+
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
 <%= javascript_include_tag 'pets' %>
+
+<script>
+
+</script>
+
 </body>
+
 </html>

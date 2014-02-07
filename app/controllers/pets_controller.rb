@@ -38,7 +38,7 @@ class PetsController < ApplicationController
   def show
     @pet = Pet.find(params[:id])
 
-    if (params[:auth])
+    if (params[:auth] and params[:treat] and current_user)
       save_action(current_user.id, current_user.name.to_s, 'g', 'gave', @pet.id.to_s, @pet.name.to_s, params[:treat], params[:treat])
       send_sms(@pet.name.to_s, params[:treat])
     end
