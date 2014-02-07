@@ -1,3 +1,134 @@
+<% if !current_user %>
+
+<!DOCTYPE html>
+
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Treats For Life</title>
+
+  <meta name="description" content="treats for life">
+  <meta name="application-name" content="treatsforlife">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+  <!-- facebook og meta-->
+
+  <meta property="og:title" content="treatsforlife">
+  <meta property="og:type" content="game">
+  <meta property="og:url" content="http://www.treatsforlife.org">
+  <meta property="og:image" content="http://www.treatsforlife.org/featured.jpg">
+  <meta property="og:site_name" content="treatsforlife">
+  <meta property="fb:admins" content="">
+  <meta property="fb:app_id" content="601219569953172">
+  <meta property="og:description" content="treatsforlife">
+
+  <!-- for Twitter   -->
+  <meta name="twitter:title" content="treatsforlife">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="http://treatsforlife.org/featured.png">
+
+  <link rel="shortcut icon" href="/favicon.ico?v=1">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+  <!-- load modernizr-->
+  <script src="/assets/vendor/modernizr-2.6.2.min.js"></script>
+
+  <script type="text/javascript" src="//use.typekit.net/udu6esd.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+
+<body class="land">
+
+<!--[if lt IE 7]>
+<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+<noscript>
+  <div class="no-js-warning">This site is better with JavaScript turned on!</div>
+</noscript>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-1"></div>
+    <div class="col-md-3" style="background-color: rgba(244, 232, 197, 0.8);">
+      <div class="row">
+        <div class="col-md-12" style="padding: 0;">
+          <div class="land_logo">
+            <img src="/assets/land_logo.png" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="text">
+            <p>Treats for Life<br>
+              Help a Dog Find a Home</p>
+            <p class="gray">Do you feel that too many dogs have no home? <br>
+              Wish you could help some of them?<br>
+              Can you imagine it might be fun?<p>
+
+            <p>Treats for Life is a revolutionary app that lets you virtually adopt a dog in a pound and escort it all the way to a new home, all in a fun, playful way.</p>
+            <a href="/auth/facebook" class="face_btn">
+              <img src="/assets/FACEBOOK_PNG.png" alt="">
+            </a>
+            <a href="#" class="andr_btn">
+              <img src="/assets/ANDRIOD-PNG.png" alt="">
+            </a>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <div class="black">
+        <div class="text">
+          <p>Choose your pet from pounds near you</p>
+
+          <p>Adopt it and Treat it with fun gifts</p>
+
+          <p>Get clips of its excitement </p>
+
+          <p>Share these cute clips with your friends</p>
+
+          <p>Find his new home</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- for the jquery -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+
+<script src="/assets/vendor/jquery.nicescroll.min.js"></script>
+<script src="/assets/vendor/jquery.isotope.min.js"></script>
+<script src="/assets/vendor/headroom.min.js"></script>
+<script src="/assets/vendor/jquery.headroom.min.js"></script>
+
+<script src="/assets/plugins.js"></script>
+<script src="/assets/main.js"></script>
+
+<script>
+
+</script>
+
+</body>
+
+</html>
+
+<% else %>
+
 <!DOCTYPE html>
 
 <!--[if lt IE 7]>
@@ -138,3 +269,4 @@
 </body>
 
 </html>
+<% end %>
