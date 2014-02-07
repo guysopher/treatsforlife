@@ -55,7 +55,7 @@ class PetsController < ApplicationController
 
       respond_to do |format|
         format.html # show.html.erb
-        format.json { render json: data }
+        format.json { render json: @pet }
       end
     }
 
