@@ -14,4 +14,9 @@ class ServicesController < ApplicationController
 
   end
 
+  def treat
+    pet_name = params[:pet_name]
+    treat_name = params[:treat_name]
+    send_sms(pet_name, treat_name)
+  end
 end

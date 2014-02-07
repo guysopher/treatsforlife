@@ -1,9 +1,67 @@
-<p id="notice"><%= notice %></p>
+<div class="user_profile">
+  <div class="container">
+    <div class="profile_image" style="background-image: url('<%=@owner['image']%>');">
+      <div class="profile_name">
+        <h1><%= @owner['name'] %></h1>
+      </div>
+    </div>
+    <div class="trophy">
+      <ul>
+        <li>
+          <div class="tt">
+            <span class="t1"></span>
+            <span class="num">10</span>
+          </div>
+        </li>
+        <li>
+          <div class="tt">
+            <span class="t2"></span>
+            <span class="num">8</span>
+          </div>
+        </li>
+        <li>
+          <div class="tt">
+            <span class="t3"></span>
+            <span class="num">10</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="clearfix"></div>
+    <div class="spacer"><img src="/assets/split.svg" alt=""></div>
+    <a href="#" class="btn-adopt">SAVE A LIFE</a>
 
-<p>
-    <%= @owner.to_a %>
-</p>
+    <!--
+        <div class="previous">
+          <h3>previous dogs adopted</h3>
+          <ul>
+            <li>
+              <a href="#" style="background-image: url('http://www.samariadogmarket.com/wp-content/gallery/test-gallery/dog-ssssss-dogs-25606625-1024-768_1.jpg');"></a>
+            </li>
+            <li>
+              <a href="#" style="background-image: url('http://www.samariadogmarket.com/wp-content/gallery/test-gallery/dog-ssssss-dogs-25606625-1024-768_1.jpg');"></a>
+            </li>
+            <li>
+              <a href="#" style="background-image: url('http://www.samariadogmarket.com/wp-content/gallery/test-gallery/dog-ssssss-dogs-25606625-1024-768_1.jpg');"></a>
+            </li>
+          </ul>
+        </div>
+    -->
+
+  </div>
+</div>
 
 
-<%= link_to 'Edit', edit_owner_path(@owner) %> |
-<%= link_to 'Back', owners_path %>
+<% if false %>
+
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <%= @owner.to_a %>
+    </p>
+
+
+    <%= link_to 'Edit', edit_owner_path(@owner) %> |
+    <%= link_to 'Back', owners_path %>
+
+<% end %>

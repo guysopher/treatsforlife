@@ -1,14 +1,89 @@
 <div class="profile">
   <div class="container">
     <div class="profile_image" style="background-image: url('<%=@pet['images'][0]%>');">
-      <% if @user %>
       <div class="profile_name">
-        <h1><%=@user['name']%></h1>
+        <h1><%=@pet['name']%></h1>
       </div>
-      <% end %>
     </div>
+    <div class="trophy">
+      <ul>
+        <li>
+          <div class="tt">
+            <span class="t1" style="position: relative">
+              <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" style="position:absolute; top:0; left:0; width:100%; height:100%">
+                <input type="hidden" name="cmd" value="_donations">
+                <input type="hidden" name="business" value="donate@SanFranciscoPounds.com">
+                <input type="hidden" name="lc" value="US">
+                <input type="hidden" name="item_name" value="Treats For Life - 3 Treats">
+                <input type="hidden" name="amount" value="2.00">
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="hidden" name="no_note" value="1">
+                <input type="hidden" name="no_shipping" value="1">
+                <input type="hidden" name="merchant_return_link" value="1">
+                <input type="hidden" name="rm" value="1">
+                <input type="hidden" name="return" value="<%=app_url%>/pets/<%=@pet['_id']%>/treat/">
+                <input type="hidden" name="cancel_return" value="<%=app_url%>/pets/<%=@pet['_id']%>/">
+                <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHosted">
+                <input type="image" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="position:absolute; top:0; left:0; width:100%; height:100%">
+                <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
+            </span>
+            <span class="num">2$</span>
+          </div>
+        </li>
+        <li>
+          <div class="tt">
+            <span class="t3" style="position: relative">
+              <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" style="position:absolute; top:0; left:0; width:100%; height:100%">
+                <input type="hidden" name="cmd" value="_donations">
+                <input type="hidden" name="business" value="donate@SanFranciscoPounds.com">
+                <input type="hidden" name="lc" value="US">
+                <input type="hidden" name="item_name" value="Treats For Life - Toy Ball">
+                <input type="hidden" name="amount" value="5.00">
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="hidden" name="no_note" value="1">
+                <input type="hidden" name="no_shipping" value="1">
+                <input type="hidden" name="merchant_return_link" value="1">
+                <input type="hidden" name="rm" value="1">
+                <input type="hidden" name="return" value="<%=app_url%>/pets/<%=@pet['_id']%>/toy/">
+                <input type="hidden" name="cancel_return" value="<%=app_url%>/pets/<%=@pet['_id']%>/">
+                <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHosted">
+                <input type="image" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="position:absolute; top:0; left:0; width:100%; height:100%">
+                <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+              </form>
+            </span>
+            <span class="num">5$</span>
+          </div>
+        </li>
+        <li>
+          <div class="tt">
+            <span class="t2" style="position: relative">
+                <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top" style="position:absolute; top:0; left:0; width:100%; height:100%">
+                  <input type="hidden" name="cmd" value="_donations">
+                  <input type="hidden" name="business" value="donate@SanFranciscoPounds.com">
+                  <input type="hidden" name="lc" value="US">
+                  <input type="hidden" name="item_name" value="Treats For Life - Walk in the Park">
+                  <input type="hidden" name="amount" value="10.00">
+                  <input type="hidden" name="currency_code" value="USD">
+                  <input type="hidden" name="no_note" value="1">
+                  <input type="hidden" name="no_shipping" value="1">
+                  <input type="hidden" name="merchant_return_link" value="1">
+                  <input type="hidden" name="rm" value="1">
+                  <input type="hidden" name="return" value="<%=app_url%>/pets/<%=@pet['_id']%>/walk/">
+                  <input type="hidden" name="cancel_return" value="<%=app_url%>/pets/<%=@pet['_id']%>/">
+                  <input type="hidden" name="bn" value="PP-DonationsBF:btn_donateCC_LG.gif:NonHosted">
+                  <input type="image" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" style="position:absolute; top:0; left:0; width:100%; height:100%">
+                  <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
+                </form>
+            </span>
+            <span class="num">10$</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <br/>
     <div class="status">
-      <div class="title">Health</div>
+      <div class="title">Happiness</div>
       <div class="bar w">
         <div class="cir" style="left: 0; top:0;"></div>
         <div class="cir" style="left: 0; top:15px;"></div>
@@ -16,14 +91,14 @@
         <div class="cir" style="right: 0; top:0;"></div>
         <div class="cir" style="right: 0; top:15px;"></div>
       </div>
-      <div class="bar">
+      <div class="bar" style="clip: rect(0, 180px, 30px, <%=@health*180%>px);">
         <div class="cir" style="left: 0; top:0;"></div>
         <div class="cir" style="left: 0; top:15px;"></div>
         <div class="mid"></div>
         <div class="cir" style="right: 0; top:0;"></div>
         <div class="cir" style="right: 0; top:15px;"></div>
       </div>
-      <div class="num">60%</div>
+      <div class="num"><%=(@health*100).to_i%>%</div>
     </div>
     <!--<div class="additional_photos">
       <div class="photos">

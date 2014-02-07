@@ -13,7 +13,9 @@ class OwnersController < ApplicationController
   # GET /owners/1
   # GET /owners/1.json
   def show
-    @owner = User.find(params[:id])
+    #@owner = Owner.find({'_id'=>params[:id]})
+    @owner = Owner.find(params[:id])
+    @owner = Hash[@owner.attributes]
 
     respond_to do |format|
       format.html # show.html.erb

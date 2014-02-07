@@ -5,6 +5,7 @@ Treatsforlife::Application.routes.draw do
   resources :actions
   resources :owners
 
+  get 'pets/mine' => 'pets#my'
   get 'pets/:id/shop' => 'pets#shop'
   get 'pets/:id/:treat' => 'pets#show'
   resources :pets
@@ -22,6 +23,8 @@ Treatsforlife::Application.routes.draw do
   match "/logout" => "sessions#destroy", :as => :logout
 
 
+  match '/services/treat' => 'services#treat'
+  match '/services/adopt' => 'services#adopt'
   match '/services/:name' => 'services#goto'
 
   # Sample of regular route:

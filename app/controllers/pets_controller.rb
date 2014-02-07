@@ -35,13 +35,16 @@ class PetsController < ApplicationController
   end
   # GET /pets/1
   # GET /pets/1.json
-  def show
-    @pet = Pet.find(params[:id])
+  def show pet=nil
+
+    id = pet ? pet.first.id : params[:id]
+    @pet = Pet.find(id.to_s)
 
     if (params[:auth] and params[:treat] and current_user)
       save_action(current_user.id, current_user.name.to_s, 'g', 'gave', @pet.id.to_s, @pet.name.to_s, params[:treat], params[:treat])
       send_sms(@pet.name.to_s, params[:treat])
     end
+
 
     open("https://api.instagram.com/v1/tags/TreatsForTheLifeOf#{@pet.name.capitalize.gsub(' ','')}/media/recent?client_id=d9c1142d0ac14d1ea5a45bc8478006a4", 'r') {|f|
       data = JSON.parse f.read
@@ -53,11 +56,12 @@ class PetsController < ApplicationController
 
       @pet = Hash[@pet.attributes]
 
-      @user = User.find({'_id'=>@pet['owner_id']}) if @pet['owner_id']
-      #last_action = Action.find({'uid'=>@pet['owner_id']}) if @pet['owner_id']
+      @user = User.find(@pet['owner_id']) if @pet['owner_id']
+      last_action = Action.where({'uid'=>@pet['owner_id']}).last.t if @pet['owner_id']
+      @health = 1-[(Time.now-last_action)/5.days,1].min
 
       respond_to do |format|
-        format.html # show.html.erb
+        format.html {render 'show.html.erb'}
         format.json { render json: @pet }
       end
     }
@@ -66,6 +70,12 @@ class PetsController < ApplicationController
 
   def shop
 
+  end
+
+  def my
+    pet = Pet.where({:owner_id=>current_user._id.to_s})
+    show(pet)
+    return
   end
 
   # GET /pets/new
