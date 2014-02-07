@@ -26,7 +26,19 @@ class PetsController < ApplicationController
       @pet.owner_id = current_user.id.to_s
       @pet.save!
       save_action(@pet.owner_id, current_user.name.to_s, 'a', 'adopted', @pet.id.to_s, @pet.name.to_s)
-      gcm
+
+      post_data = {
+          :registration_ids => ['APA91bEv-X7uOePTbwPAMNcZ3aXSJZles-RWrSex8HaoRE0oq0ekyF-Yf-BYrhjQz7Auem6w3JrkBM_u_g0Mzn9vjBEk-CXjHJHPpOCu8Y9mOwV_FMJS0hBi3pRIDQWDLqgpbq2tFP--Wjt4YkU7uQHrpKUa7Fy3fA'],
+          :payload => { :message => 'Hey, I\'m hungry, would you like to give me a treat?', :amount => 5 }
+      }
+      response = HTTParty.post('https://android.googleapis.com/gcm/send',
+                               headers: {
+                                   'Authorization' => 'key=AIzaSyDmf2Uw2YNz_TrandI25yoTkr5iiy1SqvE',
+                                   'Content-Type' => 'application/json'
+                               },
+                               body: post_data.to_json
+      )
+
     end
 
     respond_to do |format|
