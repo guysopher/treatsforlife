@@ -42,7 +42,8 @@
   <link rel="shortcut icon" href="/favicon.ico?v=1">
 
   <link rel="stylesheet" href="css/main.css">
-  <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+  <!--<link href="font-awesome/css/font-awesome.css" rel="stylesheet">-->
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
   <!-- load modernizr-->
   <script src="js/vendor/modernizr-2.6.2.min.js"></script>
@@ -93,8 +94,8 @@
     </ul>
 <% end %>
 
-<div class="container">
-
+<div class="wrapper">
+  <div id="main">
   <%= simple_format(flash[:notice], style: "color: green;") unless flash[:notice].blank? %>
   <%= simple_format(flash[:alert], style: "color: red;") unless flash[:alert].blank? %>
 
@@ -102,6 +103,8 @@
       <%= yield %>
   <% end %>
 
+  </div>
+  <div class="push"></div>
 </div>
 
 <footer>
@@ -112,15 +115,15 @@
 
 <!-- for the jquery -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+<script>window.jQuery || document.write('<script src="assets/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
-<script src="js/vendor/jquery.nicescroll.min.js"></script>
-<script src="js/vendor/jquery.isotope.min.js"></script>
-<script src="js/vendor/headroom.min.js"></script>
-<script src="js/vendor/jquery.headroom.min.js"></script>
+<script src="assets/vendor/jquery.nicescroll.min.js"></script>
+<script src="assets/vendor/jquery.isotope.min.js"></script>
+<script src="assets/vendor/headroom.min.js"></script>
+<script src="assets/vendor/jquery.headroom.min.js"></script>
 
-<script src="js/plugins.js"></script>
-<script src="js/main.js"></script>
+<script src="assets/plugins.js"></script>
+<script src="assets/main.js"></script>
 
 <%= javascript_include_tag 'pets' %>
 

@@ -99,7 +99,7 @@ $(window).load(function(){
             }); 
         }
 
-        loadPages("feed.php");
+        //loadPages("feed.php");
 
 
     });
