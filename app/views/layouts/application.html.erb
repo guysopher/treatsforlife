@@ -41,12 +41,12 @@
 
   <link rel="shortcut icon" href="/favicon.ico?v=1">
 
-  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="assets/main.css">
   <!--<link href="font-awesome/css/font-awesome.css" rel="stylesheet">-->
   <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 
   <!-- load modernizr-->
-  <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+  <script src="assets/vendor/modernizr-2.6.2.min.js"></script>
 
   <script type="text/javascript" src="//use.typekit.net/udu6esd.js"></script>
   <script type="text/javascript">try {
@@ -85,8 +85,8 @@
 
 <% unless session[:user_id].blank? %>
     <!--<ul class="nav nav-tabs navbar-fixed-top backcolor_white padding_top10">-->
-      <!--<li><%# render partial: '/layouts/user_icon', locals: {user: current_user} %></li>-->
-      <!--<li><%# link_to("Logout", logout_path) %></li>-->
+    <!--<li><%# render partial: '/layouts/user_icon', locals: {user: current_user} %></li>-->
+    <!--<li><%# link_to("Logout", logout_path) %></li>-->
     <!--</ul>-->
 <% else %>
     <ul class="nav nav-tabs navbar-fixed-top backcolor_white padding_top10">
@@ -96,12 +96,12 @@
 
 <div class="wrapper">
   <div id="main">
-  <%= simple_format(flash[:notice], style: "color: green;") unless flash[:notice].blank? %>
-  <%= simple_format(flash[:alert], style: "color: red;") unless flash[:alert].blank? %>
+    <%= simple_format(flash[:notice], style: "color: green;") unless flash[:notice].blank? %>
+    <%= simple_format(flash[:alert], style: "color: red;") unless flash[:alert].blank? %>
 
-  <% if current_user %>
-      <%= yield %>
-  <% end %>
+    <% if current_user %>
+        <%= yield %>
+    <% end %>
 
   </div>
   <div class="push"></div>
@@ -114,8 +114,8 @@
 </footer>
 
 <!-- for the jquery -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="assets/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
+<!--<script>window.jQuery || document.write('<script src="assets/vendor/jquery-1.10.1.min.js"><\/script>')</script>-->
 
 <script src="assets/vendor/jquery.nicescroll.min.js"></script>
 <script src="assets/vendor/jquery.isotope.min.js"></script>

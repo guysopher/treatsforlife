@@ -3,7 +3,9 @@ $(window).load(function(){
         
         //$("header").headroom();
 
+        console.log('loaded');
         function init(){
+            console.log('init');
             $('.loadPage').click(function() {
                 //console.log($(this).attr("href"));
                 loadPages($(this).attr("href"));
@@ -100,6 +102,7 @@ $(window).load(function(){
         }
 
         //loadPages("feed.php");
+        init();
 
 
     });

@@ -1,3 +1,110 @@
+<div class="profile">
+  <div class="container">
+    <div class="profile_image" style="background-image: url('<%=@pet['images'][0]%>');">
+      <div class="profile_name">
+        <h1>Guy Tzaban</h1>
+      </div>
+    </div>
+    <div class="status">
+      <div class="title">Health</div>
+      <div class="bar w">
+        <div class="cir" style="left: 0; top:0;"></div>
+        <div class="cir" style="left: 0; top:15px;"></div>
+        <div class="mid"></div>
+        <div class="cir" style="right: 0; top:0;"></div>
+        <div class="cir" style="right: 0; top:15px;"></div>
+      </div>
+      <div class="bar">
+        <div class="cir" style="left: 0; top:0;"></div>
+        <div class="cir" style="left: 0; top:15px;"></div>
+        <div class="mid"></div>
+        <div class="cir" style="right: 0; top:0;"></div>
+        <div class="cir" style="right: 0; top:15px;"></div>
+      </div>
+      <div class="num">60%</div>
+    </div>
+    <div class="additional_photos">
+      <div class="photos">
+        <a href="#" class="img"><img src="http://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt=""></a>
+        <a href="#" class="img"><img src="http://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt=""></a>
+        <a href="#" class="img"><img src="http://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt=""></a>
+      </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="spacer"><img src="assets/split.svg" alt=""></div>
+    <div class="details">
+      <table class="table">
+        <tr>
+          <td>breed</td>
+          <td>
+
+          </td>
+          <td>mixed</td>
+        </tr>
+        <tr>
+          <td>gender</td>
+          <td>
+            <span class="a1 active"></span>
+            <span class="a2"></span>
+          </td>
+          <td>male</td>
+        </tr>
+        <tr>
+          <td>age</td>
+          <td>
+            <span class="a3"></span>
+            <span class="a4 active"></span>
+            <span class="a5"></span>
+
+          </td>
+          <td>2.5</td>
+        </tr>
+        <tr>
+          <td>size</td>
+          <td>
+            <span class="a6"></span>
+            <span class="a7"></span>
+            <span class="a8 active"></span>
+          </td>
+          <td>1,2 (feet)</td>
+        </tr>
+        <tr>
+          <td>education</td>
+          <td>
+            <span class="a9"></span>
+            <span class="a10 active"></span>
+            <span class="a11"></span>
+          </td>
+          <td>disiplined</td>
+        </tr>
+      </table>
+    </div>
+    <div class="clearfix"></div>
+    <div class="spacer"><img src="assets/split.svg" alt=""></div>
+    <div class="video">
+      <div class="title"><span class="blue">Videos of</span> little john</div>
+      <div class="videos">
+        <a href="#" class="img">
+          <span class="play"></span>
+          <img src="http://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt="">
+        </a>
+        <a href="#" class="img">
+          <span class="play"></span>
+          <img src="http://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt="">
+        </a>
+        <a href="#" class="img">
+          <span class="play"></span>
+          <img src="http://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+<% if false %>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -51,3 +158,4 @@
 
 <%= link_to 'Edit', edit_pet_path(@pet) %> |
 <%= link_to 'Back', pets_path %>
+<% end %>
