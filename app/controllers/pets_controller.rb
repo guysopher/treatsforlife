@@ -1,3 +1,5 @@
+require 'open_uri'
+
 class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
