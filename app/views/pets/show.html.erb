@@ -32,10 +32,14 @@
 
 <p>
   <b>Videos:</b>
-  <% @pet.videos.each do |v| %>
-      <video id="video" autobuffer controls height="240" width="360">
-        <source src="<%= v %>" type="video/mp4"/>
-      </video>
+  <% if @pet.videos %>
+      <% @pet.videos.each do |v| %>
+          <video id="video" autobuffer controls height="240" width="360">
+            <source src="<%= v %>" type="video/mp4"/>
+          </video>
+      <% end %>
+  <% else %>
+    <b>No Videos Yet</b>
   <% end %>
 </p>
 
