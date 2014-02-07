@@ -51,6 +51,11 @@ class PetsController < ApplicationController
         @pet.videos << d['videos']['standard_resolution']['url']
       end
 
+      @pet = Hash[@pet.attributes]
+
+      @user = User.find({'_id'=>@pet['owner_id']}) if @pet['owner_id']
+      #last_action = Action.find({'uid'=>@pet['owner_id']}) if @pet['owner_id']
+
       respond_to do |format|
         format.html # show.html.erb
         format.json { render json: @pet }

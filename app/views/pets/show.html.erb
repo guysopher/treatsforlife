@@ -1,9 +1,11 @@
 <div class="profile">
   <div class="container">
     <div class="profile_image" style="background-image: url('<%=@pet['images'][0]%>');">
+      <% if @user %>
       <div class="profile_name">
-        <h1>Guy Tzaban</h1>
+        <h1><%=@user['name']%></h1>
       </div>
+      <% end %>
     </div>
     <div class="status">
       <div class="title">Health</div>
@@ -23,81 +25,74 @@
       </div>
       <div class="num">60%</div>
     </div>
-    <div class="additional_photos">
+    <!--<div class="additional_photos">
       <div class="photos">
         <a href="#" class="img"><img src="http://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt=""></a>
         <a href="#" class="img"><img src="http://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt=""></a>
         <a href="#" class="img"><img src="http://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt=""></a>
       </div>
-    </div>
+    </div>-->
     <div class="clearfix"></div>
-    <div class="spacer"><img src="assets/split.svg" alt=""></div>
+    <div class="spacer"><img src="/assets/split.svg" alt=""></div>
     <div class="details">
       <table class="table">
         <tr>
           <td>breed</td>
-          <td>
-
+          <td colspan="2" class="highlight">
+            <%= @pet['breed'] %>
           </td>
-          <td>mixed</td>
         </tr>
         <tr>
           <td>gender</td>
           <td>
-            <span class="a1 active"></span>
-            <span class="a2"></span>
+            <span class="a1 <%= @pet['gender']=='Male' ? 'active' : '' %>"></span>
+            <span class="a2 <%= @pet['gender']=='Male' ? '' : 'active' %>"></span>
           </td>
           <td>male</td>
         </tr>
         <tr>
           <td>age</td>
           <td>
-            <span class="a3"></span>
-            <span class="a4 active"></span>
-            <span class="a5"></span>
-
+            <span class="a3 <%= @pet['age']=='Puppy' ? 'active' : '' %>"></span>
+            <span class="a4 <%= @pet['age']=='Young' ? 'active' : '' %>"></span>
+            <span class="a5 <%= @pet['age']=='Adult' ? 'active' : '' %>"></span>
           </td>
-          <td>2.5</td>
+          <td><%= @pet['age'] %></td>
         </tr>
         <tr>
           <td>size</td>
           <td>
-            <span class="a6"></span>
-            <span class="a7"></span>
-            <span class="a8 active"></span>
+            <span class="a6 <%= @pet['size']=='Small' ? 'active' : '' %>"></span>
+            <span class="a7 <%= @pet['size']=='Med.' ? 'active' : '' %>"></span>
+            <span class="a8 <%= @pet['size']=='Large' ? 'active' : '' %>"></span>
           </td>
-          <td>1,2 (feet)</td>
+          <td><%= @pet['size'] %></td>
         </tr>
         <tr>
           <td>education</td>
           <td>
-            <span class="a9"></span>
-            <span class="a10 active"></span>
-            <span class="a11"></span>
+            <span class="a9 <%= @pet['info']['neutered'] ? '' : 'active' %>"></span>
+            <span class="a10 <%= (@pet['info']['neutered'] && !@pet['info']['good with']) ? 'active' : '' %>"></span>
+            <span class="a11 <%= (@pet['info']['neutered'] && @pet['info']['good with']) ? 'active' : '' %>"></span>
           </td>
-          <td>disiplined</td>
+          <td><%=@pet['info']%></td>
         </tr>
       </table>
     </div>
     <div class="clearfix"></div>
-    <div class="spacer"><img src="assets/split.svg" alt=""></div>
+    <div class="spacer"><img src="/assets/split.svg" alt=""></div>
+    <% if (@pet['videos'] && @pet['videos'].length>0) %>
     <div class="video">
-      <div class="title"><span class="blue">Videos of</span> little john</div>
+      <div class="title"><span class="blue">Videos of</span> <%=@pet['name']%></div>
       <div class="videos">
-        <a href="#" class="img">
-          <span class="play"></span>
-          <img src="http://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt="">
-        </a>
-        <a href="#" class="img">
-          <span class="play"></span>
-          <img src="http://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt="">
-        </a>
-        <a href="#" class="img">
-          <span class="play"></span>
-          <img src="http://upload.wikimedia.org/wikipedia/commons/2/26/YellowLabradorLooking_new.jpg" alt="">
-        </a>
+        <% @pet['videos'].each do |v| %>
+            <video id="video" autobuffer controls width="100%">
+              <source src="<%= v %>" type="video/mp4"/>
+            </video>
+        <% end %>
       </div>
     </div>
+    <% end %>
   </div>
 
 </div>
