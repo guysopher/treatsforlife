@@ -28,6 +28,7 @@ Treatsforlife::Application.routes.draw do
   match '/services/treat' => 'services#treat'
   match '/services/adopt' => 'services#adopt'
   match '/services/:name' => 'services#goto'
+  match '/services/gcm'   => 'services#gcm'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
