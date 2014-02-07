@@ -23,6 +23,22 @@ class OwnersController < ApplicationController
     end
   end
 
+  def unadopt
+    @owner = Owner.find(current_user.id)
+    @owner.current_pet = nil
+    @owner.save!
+
+    @pets = Pet.where({'owner_id' => current_user.id})
+    @pets.each do |p|
+      p.owner_id = nil
+      p.save!
+    end
+
+    params[:id] =  current_user.id
+    show()
+    return
+  end
+
   ## GET /owners/new
   ## GET /owners/new.json
   #def new

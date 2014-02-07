@@ -3,6 +3,8 @@ Treatsforlife::Application.routes.draw do
   root to: 'actions#index'
 
   resources :actions
+
+  get 'owners/unadopt' => 'owners#unadopt'
   resources :owners
 
   get 'pets/mine' => 'pets#my'

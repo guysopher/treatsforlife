@@ -38,7 +38,7 @@ class PetsController < ApplicationController
   # GET /pets/1.json
   def show pet=nil
 
-    id = pet ? pet.id : params[:id]
+    id = pet ? pet.first.id : params[:id]
     @pet = Pet.find(id.to_s)
 
     if (params[:auth] and params[:treat] and current_user)
@@ -74,7 +74,7 @@ class PetsController < ApplicationController
   end
 
   def my
-    pet = Pet.where({:owner_id=>current_user._id.to_s}).limit(1)
+    pet = Pet.where({:owner_id=>current_user._id.to_s}).limit(1).to_a
     show(pet)
     return
   end

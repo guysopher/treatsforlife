@@ -1,6 +1,15 @@
 <div class="profile">
   <div class="container">
     <div class="profile_image" style="background-image: url('<%=@pet['images'][0]%>');">
+      <%= form_tag '/pets/'+@pet['_id'], :id=>'adopt_me', :method => 'post' do %>
+          <%= hidden_field :adopt, :value => true %>
+          <% if !@pet['owner_id'] and !current_user.current_pet %>
+              <img onclick="$('#adopt_me').submit()" src="/assets/btn_adopt_me.png" style="position: absolute;width: 200px;top: 70px;right: 25px;"/>
+          <% elsif @pet['owner_id'] and current_user.current_pet %>
+              <img src="<%=current_user.image%>" style="position: absolute;width: 200px;top: 70px;right: 25px; border-radius: 100px; border:2px solid white;"/>
+          <% end %>
+          <!--<%= submit_tag "Adopt" %>-->
+      <% end %>
       <div class="profile_name">
         <h1><%=@pet['name']%></h1>
       </div>
@@ -91,14 +100,14 @@
         <div class="cir" style="right: 0; top:0;"></div>
         <div class="cir" style="right: 0; top:15px;"></div>
       </div>
-      <div class="bar" style="clip: rect(0, 180px, 30px, <%=@health*180%>px);">
+      <div class="bar" style="clip: rect(0, 180px, 30px, <%=@health.to_i*180%>px);">
         <div class="cir" style="left: 0; top:0;"></div>
         <div class="cir" style="left: 0; top:15px;"></div>
         <div class="mid"></div>
         <div class="cir" style="right: 0; top:0;"></div>
         <div class="cir" style="right: 0; top:15px;"></div>
       </div>
-      <div class="num"><%=(@health*100).to_i%>%</div>
+      <div class="num"><%=(@health.to_i*100).to_i%>%</div>
     </div>
     <!--<div class="additional_photos">
       <div class="photos">
