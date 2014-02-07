@@ -14,9 +14,10 @@ class ActionsController < ApplicationController
 
     @actions = []
     actions.each do |a|
+      next unless a
       action = Hash[a.attributes]
-      action[:user] = Hash[users[a['uid']].attributes]
-      action[:pet] = Hash[pets[a['pid']].attributes]
+      action[:user] = Hash[users[a['uid']].attributes] if users[a['uid']]
+      action[:pet] = Hash[pets[a['pid']].attributes] if pets[a['pid']]
       @actions << action
     end
 

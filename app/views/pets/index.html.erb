@@ -1,60 +1,80 @@
-<h1>Listing pets</h1>
+<div class="feed" id="feed">
+  <% @pets.each do |pet| %>
+      <div class="box">
+        <a href="/pets/<%= pet['_id'] %>">
+          <div class="inner" style="background-image: url('<%=pet['images'][0]%>')">
+            <div class="box-head">
+              <div class="status" style="width: 100%;text-align: center;padding-top: 7px;">
+                <h1>Find <%= pet['name'].capitalize %> a Home</h1>
+              </div>
+            </div>
+          </div>
+        </a>
+        <div class="clearfix"></div>
+        <div class="spacer"><img src="/assets/split.svg" alt=""></div>
+      </div>
+  <% end %>
+</div>
+<% if false %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Breed</th>
-    <th>Age</th>
-    <th>Size</th>
-    <th>Gender</th>
-    <th>Info</th>
-    <th>Story</th>
-    <th>Owner</th>
-    <th>Images</th>
-    <th>Videos</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+    <h1>Listing pets</h1>
 
-<% @pets.each do |pet| %>
-  <tr>
-    <td><%= pet.name %></td>
-    <td><%= pet.breed %></td>
-    <td><%= pet.age %></td>
-    <td><%= pet.size %></td>
-    <td><%= pet.gender %></td>
-    <td><%= pet.info %></td>
-    <td><%= pet.story %></td>
-    <td><%= pet.owner_id %></td>
-    <td>
-      <% pet.images.map do |img| %>
-      <%= image_tag(img) %>
-      <% end %>
-    </td>
-    <td><%= pet.videos %></td>
-    <!--<td><%= link_to 'Show', pet %></td>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Breed</th>
+        <th>Age</th>
+        <th>Size</th>
+        <th>Gender</th>
+        <th>Info</th>
+        <th>Story</th>
+        <th>Owner</th>
+        <th>Images</th>
+        <th>Videos</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+      <% @pets.each do |pet| %>
+          <tr>
+            <td><%= pet.name %></td>
+            <td><%= pet.breed %></td>
+            <td><%= pet.age %></td>
+            <td><%= pet.size %></td>
+            <td><%= pet.gender %></td>
+            <td><%= pet.info %></td>
+            <td><%= pet.story %></td>
+            <td><%= pet.owner_id %></td>
+            <td>
+              <% pet.images.map do |img| %>
+                  <%= image_tag(img) %>
+              <% end %>
+            </td>
+            <td><%= pet.videos %></td>
+            <!--<td><%= link_to 'Show', pet %></td>
     <td><%= link_to 'Edit', edit_pet_path(pet) %></td>
-    <td><%= link_to 'Destroy', pet, method: :delete, data: { confirm: 'Are you sure?' } %></td>-->
-    <!--<td><%# link_to 'Adopt', pet, method: :post, data: { adopt:'true', confirm: 'Are you sure?' } %></td>-->
-    <td>
-      <%= form_tag  'pets/'+pet.id, :method => 'post' do %>
-          <%= hidden_field :adopt, :value =>true %>
-          <%= submit_tag "Adopt"%>
+    <td><%= link_to 'Destroy', pet, method: :delete, data: {confirm: 'Are you sure?'} %></td>-->
+            <!--<td><%# link_to 'Adopt', pet, method: :post, data: { adopt:'true', confirm: 'Are you sure?' } %></td>-->
+            <td>
+              <%= form_tag 'pets/'+pet.id, :method => 'post' do %>
+                  <%= hidden_field :adopt, :value => true %>
+                  <%= submit_tag "Adopt" %>
+              <% end %>
+            </td>
+            <td>
+              <%= form_tag 'pets/'+pet.id, :method => 'post' do %>
+                  <%= hidden_field_tag :treat, true %>
+                  <%= hidden_field_tag :fid, 1 %>
+                  <%= hidden_field_tag :fname, 'treat' %>
+                  <%= submit_tag "treat" %>
+              <% end %>
+            </td>
+          </tr>
       <% end %>
-    </td>
-    <td>
-      <%= form_tag  'pets/'+pet.id, :method => 'post' do %>
-          <%= hidden_field_tag :treat, true %>
-          <%= hidden_field_tag :fid, 1 %>
-          <%= hidden_field_tag :fname, 'treat' %>
-          <%= submit_tag "treat"%>
-      <% end %>
-    </td>
-  </tr>
+    </table>
+
+    <br/>
+
+    <%= link_to 'New Pet', new_pet_path %>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Pet', new_pet_path %>

@@ -3,13 +3,15 @@
       <div class="box">
         <div class="inner" style="background-image: url('<%=action[:pet]['images'][0]%>')">
           <div class="box-head">
-            <div class="prof">
-              <a href="user_profile.php" class="loadPage">
-                <div class="profile_img" style="background-image: url('<%=action[:user]['image']%>');"></div>
-              </a>
-            </div>
+            <% if  action[:user] %>
+                <div class="prof">
+                  <a href="/owner/<%= action['uid'] %>">
+                    <div class="profile_img" style="background-image: url('<%=action[:user]['image']%>');"></div>
+                  </a>
+                </div>
+            <% end %>
             <div class="status">
-              <a href="profile.php" class="loadPage"><h1>Guy gave Rexy a treat</h1></a>
+              <h1><%= action['uname'].split(' ').first %> <%= action['aname'] %> <%= action['pname'] %> <%= ('a ' + action['oname'].capitalize) if action['oname']!='' %></h1>
             </div>
             <span class="icon" style="background-image: url('assets/icon1.svg')"></span>
           </div>
@@ -23,7 +25,7 @@
           </ul>
         </div>
         <div class="clearfix"></div>
-        <div class="spacer"><img src="assets/split.svg" alt=""></div>
+        <div class="spacer"><img src="/assets/split.svg" alt=""></div>
       </div>
   <% end %>
 </div>

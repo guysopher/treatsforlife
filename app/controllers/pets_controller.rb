@@ -4,9 +4,10 @@ class PetsController < ApplicationController
   # GET /pets
   # GET /pets.json
   def index
-    @pets = Pet.all
-    @pets.each do |pet|
-      @user = pet.owner_id
+    @pets = []
+    pets = Pet.all
+    pets.each do |pet|
+      @pets << Hash[pet.attributes] unless pet.owner_id
     end
 
     respond_to do |format|
@@ -58,7 +59,7 @@ class PetsController < ApplicationController
 
       @user = User.find(@pet['owner_id']) if @pet['owner_id']
       last_action = Action.where({'uid'=>@pet['owner_id']}).last.t if @pet['owner_id']
-      @health = 1-[(Time.now-last_action)/5.days,1].min
+      @health = last_action ? 1-[(Time.now-last_action)/5.days,1].min : 0.3
 
       respond_to do |format|
         format.html {render 'show.html.erb'}

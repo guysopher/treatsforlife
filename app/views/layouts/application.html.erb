@@ -70,20 +70,22 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-10 col-sm-10 col-md-10">
-        <div class="logo">
+        <a href="/" class="">
+          <div class="logo">
           <img src="/assets/logo.svg">
         </div>
+        </a>
       </div>
       <div class="col-xs-2 col-sm-2 col-md-2">
-        <a href="/pets/mine" class="about">
-          <img src="/assets/about.svg" alt="">
+        <a href="/pets<%= (current_user && current_user.current_pet) ? '/mine' : ''%>" class="about" style="width:94px">
+          <img src="/assets/home.svg" alt="">
         </a>
       </div>
     </div>
   </div>
 </header>
 
-<% unless session[:user_id].blank? %>
+<% if current_user %>
     <!--<ul class="nav nav-tabs navbar-fixed-top backcolor_white padding_top10">-->
     <!--<li><%# render partial: '/layouts/user_icon', locals: {user: current_user} %></li>-->
     <!--<li><%# link_to("Logout", logout_path) %></li>-->
@@ -107,11 +109,13 @@
   <div class="push"></div>
 </div>
 
-<footer>
-  <a href="savelive.php" class="savelive loadPage">
+<% if params[:controller]=='actions' and !(current_user && current_user.current_pet) %>
+<footer style="position:fixed; bottom: 0;">
+  <a href="/pets" class="savelive">
     <img src="/assets/savealife.svg" alt="">
   </a>
 </footer>
+<% end %>
 
 <!-- for the jquery -->
 <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>-->
