@@ -26,6 +26,7 @@ class PetsController < ApplicationController
       @pet.owner_id = current_user.id.to_s
       @pet.save!
       save_action(@pet.owner_id, current_user.name.to_s, 'a', 'adopted', @pet.id.to_s, @pet.name.to_s)
+      gcm
     end
 
     respond_to do |format|

@@ -14,6 +14,7 @@ class ServicesController < ApplicationController
     pet = Pet.find(params[:pet_id])
     pet.owner_id = current_user.id
 
+    gcm
   end
 
   def treat
